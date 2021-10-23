@@ -7,7 +7,7 @@
     <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
 
     <!-- TODO Opciones -->
-    <PokemonOptions :pokemons="pokemonArr" />
+    <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer($event)" />
   </div>
 </template>
 
@@ -32,6 +32,9 @@ export default {
 
       const rndInt = Math.floor(Math.random() * 4);
       this.pokemon = this.pokemonArr[rndInt];
+    },
+    checkAnswer(pokemonId) {
+      this.showPokemon = true;
     },
   },
   mounted() {
